@@ -1,0 +1,117 @@
+\documentclass[a4paper, hidelinks, 14pt]{extarticle}
+
+\usepackage{tempora}
+\input{lab_template/sys/packages} % Подключаемые пакеты
+\input{lab_template/sys/styles}   % Пользовательские стили
+\usepackage{chngcntr}
+
+\begin{document}
+
+\input{lab_template/sys/names}    % Переопределение именований
+\counterwithout{figure}{section}
+
+\begin{titlepage}
+    \thispagestyle{empty}
+    \setlength{\parindent}{0ex} % set paragraph indenting to zero
+    
+    \begin{center}
+        Министерство образования Республики Беларусь \\
+        \vspace{1ex}
+        Учреждение образования\\
+        БЕЛОРУССКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ\\
+        ИНФОРМАТИКИ И РАДИОЭЛЕКТРОНИКИ
+        \begin{flushleft}
+       \vspace{1ex}
+        Факультет компьютерных систем и
+	сетей \\
+        Кафедра информатики\\
+        Дисциплина {{ subject }}
+        \end{flushleft}
+    \end{center}
+    
+    \vspace{50mm}
+    
+    \begin{center}
+        \textbf{ ОТЧЕТ } \\
+        к лабораторной работе №{{ lab_num }} \\
+        на тему <<{{ lab_topic }}>>
+    \end{center}
+    
+    \vspace{50mm}
+    
+    \begin{minipage}{.55\linewidth}
+        Выполнил студент группы {{ group_num }}
+        
+        \smallskip
+        
+        Проверил {{ degree }}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.4\linewidth}
+        \begin{flushright}
+            {{ student_name }}
+            
+            \smallskip
+            
+            {{ professor_name }}
+        \end{flushright}
+    \end{minipage}
+    
+    \vfill
+    \begin{center}
+        Минск {{ year }}
+    \end{center}
+    
+    \setlength{\parindent}{1.25cm} % reset paragraph indenting
+\end{titlepage}
+
+\renewcommand{\cftdotsep}{0.5}
+\setcounter{page}{2} % title and task pages
+\tableofcontents
+\newpage
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section{ЦЕЛЬ РАБОТЫ}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\addcontentsline{toc}{section}{1 Цель работы}
+{{ aims }}
+\newpage
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section{ТЕОРЕТИЧЕСКИЕ СВЕДЕНИЯ}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\addcontentsline{toc}{section}{2 Теоретические сведения}
+{{ theory }}
+\newpage
+
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+\section{РЕЗУЛЬТАТ ВЫПОЛНЕНИЯ ПРОГРАММЫ}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\addcontentsline{toc}{section}{3 Результат выполнения программы}
+{{ result }}
+\newpage
+
+
+%\input{text/conclusion}  % Заключение
+
+\renewcommand{\thefigure}{\Asbuk{section}.\arabic{figure}}
+\renewcommand{\thetable}{\Asbuk{section}.\arabic{table}}
+\renewcommand{\thelstlisting}{\Asbuk{section}.\arabic{lstlisting}}
+
+\pagestyle{fancy}
+\thispagestyle{plain}
+\setcounter{figure}{0}
+
+\section*{
+        \begin{center}
+        ПРИЛОЖЕНИЕ {{ appendix_num }}\\
+        {{ appendix_title }}% Центрирование
+        \end{center}
+        }
+\addcontentsline{toc}{section}{Приложение {{ appendix_num }} {{ appendix_title }}}
+{{ appendix }}
+\newpage
+
+\end{document}
